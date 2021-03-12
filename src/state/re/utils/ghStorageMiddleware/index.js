@@ -1,21 +1,11 @@
 import throttle from "lodash/throttle";
 import { get } from "./githubConnection";
-import { waited } from "./patientMiddleware";
-
-export const patientGitHubConnection = ({ repo, path }) => {
-    return waited((state) =>
-        // I have to run `get` every time to get a new `sha` from github, I think
-        get({ repo, path }).then(({ writeFunc }) => {
-            writeFunc(JSON.stringify(state, null, 4));
-        })
-    );
-};
 
 let p = null;
 const handleReq = (reqFn, time = 2000) =>
-    throttle((state) => {
+    throttle((...args) => {
         if (!p)
-            p = reqFn(state).then(() => {
+            p = reqFn(...args).then(() => {
                 p = null;
             });
     }, time);

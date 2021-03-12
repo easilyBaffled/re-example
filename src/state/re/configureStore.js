@@ -10,18 +10,16 @@ import { isJson } from "../../utils/predicates";
 
 const deserialize = (mightBeString) =>
     isJson(mightBeString) ? JSON.parse(mightBeString) : mightBeString;
-// console.log(storage);
+
 const githubStorage = configureGithubStorage({
     repo: "routine-parse-tag-sort",
     path: "src/list.md"
 });
 
 const mergedStorage = {
-    getItem: (...args) =>
-        githubStorage.getItem(...console.tap(args)).then(console.tap),
+    getItem: (...args) => githubStorage.getItem(...args),
     setItem: (...args) =>
-        console.tap(storage.setItem(...args), "setItem").then((res) => {
-            console.log({ args, res });
+        storage.setItem(...args).then((res) => {
             githubStorage.setItem(...args);
             return res;
         }),
