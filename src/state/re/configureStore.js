@@ -1,48 +1,17 @@
 import { createStore, applyMiddleware } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
-import hardSet from "redux-persist/lib/stateReconciler/hardSet";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+
 import { PersistGate } from "redux-persist/es/integration/react";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import { configureGithubStorage } from "./utils/ghStorageMiddleware";
-import { isJson } from "../../utils/predicates";
-
-const deserialize = (mightBeString) =>
-    isJson(mightBeString) ? JSON.parse(mightBeString) : mightBeString;
-
-const githubStorage = configureGithubStorage({
-    repo: "routine-parse-tag-sort",
-    path: "src/list.md"
-});
-
-const mergedStorage = {
-    getItem: (...args) => githubStorage.getItem(...args),
-    setItem: (...args) =>
-        storage.setItem(...args).then((res) => {
-            githubStorage.setItem(...args);
-            return res;
-        }),
-    deleteItem: (...args) =>
-        storage.deleteItem(...args).then((res) => {
-            githubStorage.deleteItem(...args);
-            return res;
-        })
-};
-
-const defaultPersistConfig = {
-    key: "root",
-    storage: mergedStorage,
-    stateReconciler: hardSet,
-    debug: true,
-    deserialize
-};
+import { createFireBaseRealTimePersistConfig } from "./utils/firebasePersitance";
 
 const configureStore = (
     reducer,
     loadingIndicator,
-    persistConfig = defaultPersistConfig
+    persistConfig = createFireBaseRealTimePersistConfig()
 ) => {
+    console.log(persistConfig);
     const persistedReducer = persistReducer(persistConfig, reducer);
     let store = createStore(persistedReducer, applyMiddleware(thunk));
     let persistor = persistStore(store);

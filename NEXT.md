@@ -16,14 +16,43 @@
 -   [x] Create util to write to a github repo
 -   [x] create function to configure github write
 -   [x] create github middleware
--   [ ] what does redux-persist want for storage api? https://github.com/rt2zz/redux-persist/blob/master/src/storage/createWebStorage.js https://github.com/rt2zz/redux-persist/blob/d7efde9115a0bd2d6a0309ac6fb1c018bf06dc30/src/storage/getStorage.js
--   [ ] create persist function for github write
--   [ ] am I better off with firebase/store?
+-   [x] what does redux-persist want for storage api? https://github.com/rt2zz/redux-persist/blob/master/src/storage/createWebStorage.js https://github.com/rt2zz/redux-persist/blob/d7efde9115a0bd2d6a0309ac6fb1c018bf06dc30/src/storage/getStorage.js
+-   [x] create persist function for github write
+-   [x] am I better off with firebase/store?
+-   [x] move firebase to `index.js`
+-   [x] move redux-persist into module with firebase connection
+-   [x] test firebase-persistance
+
+## 1st Test
+
+-   [ ] install redux module to https://codesandbox.io/s/task-tagging-and-sorting-47dss?file=/src/styles.scss
+-   [ ] create firebase db
+-   [ ] install firebase persist
 
 ## Redux Toolkit
 
 -   [ ] what is https://redux-toolkit.js.org/
 -   [ ] how much does https://redux-toolkit.js.org/ replace for me
+
+## NPM Module Template
+
+-   [x] how does https://github.com/chalk/chalk setup and deploy
+-   [x] what does https://www.npmjs.com/package/generator-nm create? - nothhing for publishing
+-   [ ] should I use https://www.pika.dev/blog/introducing-pika-pack/
+-   [ ] use example from https://github.com/easilyBaffled/console.tap/blob/master/package.json
+-   [ ] add script to test and publish
+-   [ ] add script to create gh repo
+-   [ ] add eslint
+-   [ ] would snowpack help or hurt
+-   [ ] is https://kentcdodds.com/blog/stop-mocking-fetch?ck_subscriber_id=668659225 good for testing?
+-   [ ] add https://netflix.github.io/pollyjs/#/quick-start for testing
+-   [ ] greenkeeper replacement
+-   [ ] security audit
+-   [ ] testing dashboards
+-   [ ] github action to publish npm on successful PR
+-   [ ] https://github.com/sindresorhus/np
+
+### Which Parts to split out
 
 ## Immer
 

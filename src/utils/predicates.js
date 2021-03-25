@@ -1,5 +1,3 @@
-import isObject from "lodash/isObject";
-
 export const not = (func) => (...args) => !func(...args);
 // from https://github.com/jonschlinkert/is-primitive
 export const isPrimitive = (val) =>

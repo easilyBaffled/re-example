@@ -4,7 +4,7 @@ import rootReducer from "./state";
 import { connect } from "react-redux";
 import JSONTree from "react-json-tree";
 import StopWatch from "./components/StopWatch";
-const { StoreProvider } = configureStore(rootReducer, () => <h1>Loading</h1>);
+const { StoreProvider } = configureStore(rootReducer);
 
 export function App(props) {
     return (
