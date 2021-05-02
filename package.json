@@ -5,7 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "@firebase/app": "0.6.16",
+    "@easilybaffled/firebase-persist": "1.3.5",
     "@octokit/core": "3.2.5",
     "dayjs": "1.10.4",
     "firebase": "8.3.0",

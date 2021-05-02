@@ -38,11 +38,13 @@
 
 -   [x] how does https://github.com/chalk/chalk setup and deploy
 -   [x] what does https://www.npmjs.com/package/generator-nm create? - nothhing for publishing
--   [ ] should I use https://www.pika.dev/blog/introducing-pika-pack/
--   [ ] use example from https://github.com/easilyBaffled/console.tap/blob/master/package.json
--   [ ] add script to test and publish
+-   [x] should I use https://www.pika.dev/blog/introducing-pika-pack/
+-   [x] use example from https://github.com/easilyBaffled/console.tap/blob/master/package.json
+-   [x] add script to test and publish
+-   [x] add eslint
+-   [ ] which actions would I need https://github.com/actions/setup-node/tree/main/.github/workflows
+-   [ ] how to encoprerate https://docs.skypack.dev/package-authors/package-checks
 -   [ ] add script to create gh repo
--   [ ] add eslint
 -   [ ] would snowpack help or hurt
 -   [ ] is https://kentcdodds.com/blog/stop-mocking-fetch?ck_subscriber_id=668659225 good for testing?
 -   [ ] add https://netflix.github.io/pollyjs/#/quick-start for testing
@@ -50,7 +52,8 @@
 -   [ ] security audit
 -   [ ] testing dashboards
 -   [ ] github action to publish npm on successful PR
--   [ ] https://github.com/sindresorhus/np
+-   [x] https://github.com/sindresorhus/np
+-   [ ] ci connection
 
 ### Which Parts to split out
 
