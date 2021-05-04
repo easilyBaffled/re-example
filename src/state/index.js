@@ -1,10 +1,9 @@
 import { combineReducers } from "redux";
-import * as stopwatch from "./stopwatch";
-import { prepSegments } from "./re/prepSegments";
+import stopwatch from "./stopwatch";
 
-export const stateControls = prepSegments({
+export const stateControls = {
     stopwatch
-});
+};
 
 export default combineReducers(
     Object.entries(stateControls).reduce(

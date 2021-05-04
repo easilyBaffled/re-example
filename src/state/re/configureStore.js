@@ -21,7 +21,6 @@ const configureStore = (
     loadingIndicator,
     persistConfig = createFireBaseRealTimePersistConfig(firebaseConfig, 100)
 ) => {
-    console.log(persistConfig);
     const persistedReducer = persistReducer(persistConfig, reducer);
     let store = createStore(persistedReducer, applyMiddleware(thunk));
     let persistor = persistStore(store);

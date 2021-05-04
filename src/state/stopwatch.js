@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
 import { set } from "./re/utils/shortcuts";
 import { time } from "../utils/stringFormatting";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const STOPWATCH_INTERVAL = 50;
 export const INITIAL_ELAPSED_TIME = "00:00:00:00";
@@ -11,6 +12,28 @@ export const initialState = {
     startedAt: 0,
     running: false
 };
+
+export default createSlice({
+    name: "stopwatch",
+    initialState,
+    reducers: {
+        resume(s) {
+            s.running = true;
+        },
+        start(s) {
+            s.running = true;
+            s.startedAt = Date.now();
+        },
+        stop(s, { payload: { elapsedTime = STOPWATCH_INTERVAL } }) {
+            s.running = false;
+            s.elapsedTime += elapsedTime;
+        },
+        reset: () => initialState,
+        addTime(s, { payload: { elapsedTime = STOPWATCH_INTERVAL } }) {
+            s.elapsedTime += elapsedTime;
+        }
+    }
+});
 
 export const actors = {
     resume: set`running${true}`,
